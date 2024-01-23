@@ -7,6 +7,7 @@ import 'package:foodpanda_user/providers/authentication_provider.dart';
 import 'package:foodpanda_user/voucher/screens/voucher_screen.dart';
 import 'package:foodpanda_user/widgets/my_alert_dialog.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class MyDrawer extends StatelessWidget {
   final BuildContext parentContext;
@@ -228,7 +229,10 @@ class MyDrawer extends StatelessWidget {
               icon,
               color: scheme.primary,
             ),
-            onTap: onTap,
+            onTap: (){
+              Share.share('check out our APP https://pub.dev/');
+
+            },
           );
   }
 }

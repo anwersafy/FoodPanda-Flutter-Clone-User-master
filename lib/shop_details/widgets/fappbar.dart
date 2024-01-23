@@ -3,12 +3,19 @@ import 'package:foodpanda_user/constants/colors.dart';
 import 'package:foodpanda_user/helpers/helper.dart';
 import 'package:foodpanda_user/models/menu.dart';
 import 'package:foodpanda_user/models/shop.dart';
+// import 'package:foodpanda_user/providers/authentication_provider.dart';
+// import 'package:foodpanda_user/providers/cart_provider.dart';
+// import 'package:foodpanda_user/providers/order_provider.dart';
+import 'package:foodpanda_user/shop_details/screens/shop_details.dart';
 import 'package:foodpanda_user/shop_details/widgets/discount_card.dart';
 import 'package:foodpanda_user/shop_details/widgets/ficon_button.dart';
 import 'package:foodpanda_user/shop_details/widgets/header_clip.dart';
-import 'package:foodpanda_user/shop_details/widgets/panda_head.dart';
+// import 'package:foodpanda_user/shop_details/widgets/panda_head.dart';
 import 'package:foodpanda_user/shop_details/widgets/promo_text.dart';
+// import 'package:provider/provider.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
+import 'package:share_plus/share_plus.dart';
+// import 'package:foodpanda_user/food_delivery/controllers/food_delivery_controller.dart';
 
 class FAppBar extends SliverAppBar {
   final Shop shop;
@@ -37,6 +44,33 @@ class FAppBar extends SliverAppBar {
 
   @override
   Color? get backgroundColor => scheme.surface;
+  // FoodDeliveryController foodDeliveryController = FoodDeliveryController();
+  // List<Shop> shops = [];
+  bool isLoading = true;
+  // Future getData() async {
+  //   final authenticationProvider = context.read<AuthenticationProvider>();
+  //   final cartProvider = context.read<CartProvider>();
+  //   final orderProvider = context.read<OrderProvider>();
+
+  //   await authenticationProvider.getUserDataFromSharedPreferences();
+  //   await cartProvider.getCartFromSharedPreferences(context);
+  //   shops = await foodDeliveryController.fetchShop(context);
+  //   await orderProvider.getOrderFromSharedPreferences();
+  //   isLoading = false;
+  //   // setState(() {});
+  // }
+
+  //  getMenu(Shop shop) async {
+  //   List<Menu> menu =
+  //       await foodDeliveryController.fetchCategory(sellerUid: shop.uid);
+
+  //   Navigator.pushNamed(
+  //     context,
+  //     ShopDetailScreen.routeName,
+  //     arguments: ShopDetailScreen(shop: shop, menu: menu),
+  //   );
+  // }
+
 
   @override
   Widget? get leading {
@@ -57,7 +91,12 @@ class FAppBar extends SliverAppBar {
       FIconButton(
         backgroundColor: backgroundColor,
         onPressed: () {
-          
+          String shareMessage = "Check out ${shop.shopName} on HelloPanda! ${ShopDetailScreen.routeName}";
+          Share.share(shareMessage);
+
+          // Share.share("check this shop out : {$ShopDetailScreen.routeName}" );
+
+
         },
         icon: Icon(Icons.share_outlined),
       ),

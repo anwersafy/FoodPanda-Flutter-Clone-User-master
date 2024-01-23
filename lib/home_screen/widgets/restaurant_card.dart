@@ -135,29 +135,29 @@ class RestaurantCard extends StatelessWidget {
               // fontFamily: regularFont,
             ),
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Icon(
-                Icons.directions_bike,
-                size: 14,
-                color: scheme.primary,
-              ),
-              const SizedBox(width: 5),
-              Text(
-                shop.deliveryPrice != 0
-                    ? '\$ ${shop.deliveryPrice}'
-                    : 'Free delivery',
-                style: TextStyle(
-                  color:
-                      shop.deliveryPrice != 0 ? Colors.black : scheme.primary,
-                  fontSize: 12,
-                  // fontFamily: regularFont,
-                ),
-              ),
-            ],
-          )
+          // Row(
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   mainAxisAlignment: MainAxisAlignment.start,
+          //   children: [
+          //     Icon(
+          //       Icons.directions_bike,
+          //       size: 14,
+          //       color: scheme.primary,
+          //     ),
+          //     const SizedBox(width: 5),
+          //     Text(
+          //       shop.deliveryPrice != 0
+          //           ? '\$ ${shop.deliveryPrice}'
+          //           : 'Free delivery',
+          //       style: TextStyle(
+          //         color:
+          //             shop.deliveryPrice != 0 ? Colors.black : scheme.primary,
+          //         fontSize: 12,
+          //         // fontFamily: regularFont,
+          //       ),
+          //     ),
+          //   ],
+          // )
         ],
       ),
     );
