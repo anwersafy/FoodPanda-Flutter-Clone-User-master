@@ -38,7 +38,7 @@ Future<void> showSortModal({
                     const SizedBox(height: 30),
                     Row(
                       children: [
-                        Expanded(
+                        const Expanded(
                           child: Text(
                             'Sort by',
                             style: TextStyle(
@@ -78,7 +78,7 @@ Future<void> showSortModal({
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Row(
                           children: [
-                            Expanded(child: Text('Latest (default)')),
+                            const Expanded(child: Text('Latest (default)')),
                             Icon(
                               sortBy == 'latest'
                                   ? Icons.radio_button_checked
@@ -99,7 +99,7 @@ Future<void> showSortModal({
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Row(
                           children: [
-                            Expanded(child: Text('Expiring first')),
+                            const Expanded(child: Text('Expiring first')),
                             Icon(
                               sortBy == 'expiring'
                                   ? Icons.radio_button_checked
@@ -120,7 +120,7 @@ Future<void> showSortModal({
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Row(
                           children: [
-                            Expanded(child: Text('Lowest minimum order value')),
+                            const Expanded(child: Text('Lowest minimum order value')),
                             Icon(
                               sortBy == 'minimum'
                                   ? Icons.radio_button_checked

@@ -56,7 +56,9 @@ class FAppBar extends SliverAppBar {
     return [
       FIconButton(
         backgroundColor: backgroundColor,
-        onPressed: () {},
+        onPressed: () {
+          
+        },
         icon: Icon(Icons.share_outlined),
       ),
       FIconButton(
@@ -137,8 +139,8 @@ class FAppBar extends SliverAppBar {
                 children: [
                   PromoText(
                       title:
-                          'ប្រើកូដ HELLOPANDA បញ្ចុះតម្លៃ 50% សម្រាប់ការកុម៉្មងលើកដំបូងចាប់ពី 4.5\$ ឡើងទៅ'),
-                  const PandaHead(),
+                          ' HELLOPANDA 4.5\$ '),
+                  // const PandaHead(),
                   Column(
                     children: [
                       HeaderClip(context: context, shop: shop),

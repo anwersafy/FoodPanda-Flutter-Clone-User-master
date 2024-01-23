@@ -3,14 +3,14 @@ import 'package:flutter_sticky_widgets/flutter_sticky_widgets.dart';
 import 'package:foodpanda_user/cart/screens/checkout_screen.dart';
 import 'package:foodpanda_user/cart/widgets/bottom_navigation.dart';
 import 'package:foodpanda_user/cart/widgets/cutlery_switch.dart';
-import 'package:foodpanda_user/cart/widgets/estimate_card.dart';
+// import 'package:foodpanda_user/cart/widgets/estimate_card.dart';
 import 'package:foodpanda_user/cart/widgets/product_card.dart';
-import 'package:foodpanda_user/cart/widgets/progress_stepper.dart';
+// import 'package:foodpanda_user/cart/widgets/progress_stepper.dart';
 import 'package:foodpanda_user/cart/widgets/subtotal_card.dart';
 import 'package:foodpanda_user/constants/colors.dart';
 import 'package:foodpanda_user/customize/screens/customize_screen.dart';
 import 'package:foodpanda_user/food_delivery/controllers/food_delivery_controller.dart';
-import 'package:foodpanda_user/home_screen/screens/home_screen.dart';
+// import 'package:foodpanda_user/home_screen/screens/home_screen.dart';
 import 'package:foodpanda_user/models/cart.dart';
 import 'package:foodpanda_user/models/menu.dart';
 import 'package:foodpanda_user/models/voucher.dart';
@@ -223,13 +223,14 @@ class _CartScreenState extends State<CartScreen> {
                   finalPosition: StickyPosition(top: 0, right: 0),
                   controller: scrollController,
                   child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 50,
-                    child: ProgressStepper(
-                      isProgess: isProgess,
-                      activeStep: 2,
-                    ),
-                  ),
+                      // width: MediaQuery.of(context).size.width,
+                      // height: 50,
+                      // child: Container()
+                      // ProgressStepper(
+                      //   isProgess: isProgess,
+                      //   activeStep: 2,
+                      // ),
+                      ),
                 ),
               ],
               child: SingleChildScrollView(
@@ -243,10 +244,10 @@ class _CartScreenState extends State<CartScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SizedBox(height: 40),
-                          EstimateCard(
-                            remainingTime: carts[0].shop.remainingTime!,
-                          ),
+                          const SizedBox(height: 10),
+                          // EstimateCard(
+                          //   remainingTime: carts[0].shop.remainingTime!,
+                          // ),
                           const SizedBox(height: 20),
                           ListView.builder(
                             shrinkWrap: true,

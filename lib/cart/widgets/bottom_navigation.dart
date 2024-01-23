@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodpanda_user/authentication/widgets/custom_textbutton.dart';
 import 'package:foodpanda_user/constants/colors.dart';
 import 'package:foodpanda_user/models/cart.dart';
-import 'package:foodpanda_user/models/voucher.dart';
+// import 'package:foodpanda_user/models/voucher.dart';
 
 class BottomNavigation extends StatelessWidget {
   final double subtotalPrice;
@@ -44,8 +44,8 @@ class BottomNavigation extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Wrap(
+              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,6 +61,7 @@ class BottomNavigation extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 5),
+                        
                         Text(
                           '(incl. VAT)',
                           style: TextStyle(

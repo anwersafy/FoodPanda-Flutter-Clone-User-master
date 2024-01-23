@@ -25,7 +25,7 @@ void showAuthenticationModal(BuildContext context) {
             authenticationProvider.checkUserExists().then(
               (value) async {
                 if (value) {
-// if user exist
+                // if user exist
                   await authenticationProvider
                       .getUserDataFromFirestore(authenticationProvider.uid)
                       .then(
@@ -55,7 +55,7 @@ void showAuthenticationModal(BuildContext context) {
                             ),
                       );
                 } else {
-// user does not exist - new user
+                      // user does not exist - new user
                   authenticationProvider.saveDataToFirestore().then(
                         (value) => authenticationProvider
                             .saveDataToSharedPreferences()
@@ -93,16 +93,21 @@ void showAuthenticationModal(BuildContext context) {
         height: 320,
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
-        child: Column(
+        child: Wrap(
+          runAlignment: WrapAlignment.center,
+          spacing: 20,
           children: [
-            Container(
-              height: 3,
-              width: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: Colors.grey[300],
+            Center(
+              child: Container(
+                
+                height: 3,
+                width: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.grey[300],
+                ),
+                alignment: Alignment.center,
               ),
-              alignment: Alignment.center,
             ),
             const SizedBox(height: 15),
             const SizedBox(

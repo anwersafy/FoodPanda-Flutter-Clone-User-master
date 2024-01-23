@@ -31,9 +31,9 @@ Future<void> showVoucherDetailModal({
               alignment: Alignment.center,
             ),
             const SizedBox(height: 25),
-            Container(
+            const SizedBox(
               width: double.infinity,
-              child: const Text(
+              child: Text(
                 'Voucher details',
                 style: TextStyle(
                   fontWeight: FontWeight.w600,

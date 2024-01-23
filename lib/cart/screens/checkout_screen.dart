@@ -15,7 +15,7 @@ import 'package:foodpanda_user/models/cart.dart';
 import 'package:foodpanda_user/models/order.dart';
 import 'package:foodpanda_user/models/user.dart';
 import 'package:foodpanda_user/providers/authentication_provider.dart';
-import 'package:foodpanda_user/providers/cart_provider.dart';
+// import 'package:foodpanda_user/providers/cart_provider.dart';
 import 'package:foodpanda_user/providers/location_provider.dart';
 import 'package:foodpanda_user/providers/order_provider.dart';
 import 'package:foodpanda_user/voucher/controllers/voucher_controller.dart';
@@ -169,12 +169,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             finalPosition: StickyPosition(top: 0, right: 0),
             controller: scrollController,
             child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: 50,
-              child: ProgressStepper(
-                isProgess: isProgess,
-                activeStep: 3,
-              ),
+              // width: MediaQuery.of(context).size.width,
+              // height: 50,
+              // child: Container()
+              // ProgressStepper(
+              //   isProgess: isProgess,
+              //   activeStep: 3,
+              // ),
             ),
           ),
         ],
@@ -186,181 +187,210 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 60),
+                const SizedBox(height: 10),
                 BoxContainer(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(15),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.location_on_outlined,
-                                  color: scheme.primary,
-                                ),
-                                const SizedBox(width: 10),
-                                const Expanded(
-                                  child: Text(
-                                    'Delivery address',
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                      context,
-                                      AddressScreen.routeName,
-                                      arguments: AddressScreen(
-                                        selectedAddress: selectedAddress,
-                                        handleChange: (Address newAddress) {
-                                          double distance =
-                                              Helper().calculateDistance(
-                                            newAddress.latitude,
-                                            newAddress.longitude,
-                                            widget.carts[0].shop.latitude,
-                                            widget.carts[0].shop.longitude,
-                                          );
-                                          double newDeliveryPrice =
-                                              distance <= 0.5
-                                                  ? 0
-                                                  : distance <= 1
-                                                      ? 0.3
-                                                      : distance * 0.3;
+                  child:Container() 
+                  // Column(
+                  //   children: [
+                  //     Padding(
+                  //       padding: const EdgeInsets.all(15),
+                  //       child: Column(
+                  //         crossAxisAlignment: CrossAxisAlignment.start,
+                  //         children: [
+                  //           Row(
+                  //             children: [
+                  //               Icon(
+                  //                 Icons.location_on_outlined,
+                  //                 color: scheme.primary,
+                  //               ),
+                  //               const SizedBox(width: 10),
+                  //               const Expanded(
+                  //                 child: Text(
+                  //                   'Delivery address',
+                  //                   style: TextStyle(
+                  //                     fontSize: 18,
+                  //                     fontWeight: FontWeight.w600,
+                  //                   ),
+                  //                 ),
+                  //               ),
+                  //               GestureDetector(
+                  //                 onTap: () {
+                  //                   Navigator.pushNamed(
+                  //                     context,
+                  //                     AddressScreen.routeName,
+                  //                     arguments: AddressScreen(
+                  //                       selectedAddress: selectedAddress,
+                  //                       handleChange: (Address newAddress) {
+                  //                         double distance =
+                  //                             Helper().calculateDistance(
+                  //                           newAddress.latitude,
+                  //                           newAddress.longitude,
+                  //                           widget.carts[0].shop.latitude,
+                  //                           widget.carts[0].shop.longitude,
+                  //                         );
+                  //                         double newDeliveryPrice =
+                  //                             distance <= 0.5
+                  //                                 ? 0
+                  //                                 : distance <= 1
+                  //                                     ? 0.3
+                  //                                     : distance * 0.3;
 
-                                          setState(() {
-                                            deliveryPrice = double.parse(
-                                                newDeliveryPrice
-                                                    .toStringAsFixed(2));
+                  //                         setState(() {
+                  //                           deliveryPrice = double.parse(
+                  //                               newDeliveryPrice
+                  //                                   .toStringAsFixed(2));
 
-                                            selectedAddress = newAddress;
-                                          });
-                                        },
-                                        mapController: mapController,
-                                      ),
-                                    );
-                                  },
-                                  child: Icon(
-                                    Icons.edit_outlined,
-                                    color: scheme.primary,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 15),
-                            Container(
-                              height: 100,
-                              color: Colors.white,
-                              child: MapPreview(
-                                selectedAddress: selectedAddress,
-                                onMapCreated: (GoogleMapController controller) {
-                                  setState(() {
-                                    mapController = controller;
-                                  });
-                                },
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              '${selectedAddress.houseNumber.isEmpty ? '' : selectedAddress.houseNumber + ' '}${selectedAddress.street}',
-                            ),
-                            Text(selectedAddress.province),
-                          ],
-                        ),
-                      ),
-                      Divider(
-                        thickness: 1.2,
-                        color: Colors.grey[200],
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(
-                              context, EditAddressScreen.routeName,
-                              arguments: EditAddressScreen(
-                                editAddress: selectedAddress,
-                                handleChange: (Address newAddress) {
-                                  setState(() {
-                                    selectedAddress = newAddress;
-                                  });
-                                },
-                                isInstructionFocus: true,
-                              ));
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 5),
-                          child: selectedAddress.deliveryInstruction == ''
-                              ? Row(
-                                  children: [
-                                    Icon(
-                                      Icons.add,
-                                      color: scheme.primary,
-                                    ),
-                                    const SizedBox(width: 10),
-                                    Text(
-                                      'Add delivery instructions',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        color: scheme.primary,
-                                      ),
-                                    )
-                                  ],
-                                )
-                              : Padding(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          selectedAddress.deliveryInstruction!,
-                                        ),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Icon(
-                                        Icons.arrow_forward_ios_rounded,
-                                        color: scheme.primary,
-                                        size: 15,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                        ),
-                      ),
-                      Divider(
-                        thickness: 1.2,
-                        color: Colors.grey[200],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 15, vertical: 5),
-                        child: Row(
-                          children: [
-                            const Expanded(
-                              child: Text(
-                                'Contactless delivery: switch to online payment for this option',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 50),
-                            Switch(
-                              value: false,
-                              activeTrackColor: scheme.primary,
-                              activeColor: Colors.white,
-                              onChanged: (value) {},
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                    ],
-                  ),
+                  //                           selectedAddress = newAddress;
+                  //                         });
+                  //                       },
+                  //                       mapController: mapController,
+                  //                     ),
+                  //                   );
+                  //                 },
+                  //                 child: Icon(
+                  //                   Icons.edit_outlined,
+                  //                   color: scheme.primary,
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //           const SizedBox(height: 15),
+                  //           Container(
+                  //             height: 100,
+                  //             color: Colors.white,
+                  //             child: MapPreview(
+                  //               selectedAddress: selectedAddress,
+                  //               onMapCreated: (GoogleMapController controller) {
+                  //                 setState(() {
+                  //                   mapController = controller;
+                  //                 });
+                  //               },
+                  //             ),
+                  //           ),
+                  //           const SizedBox(height: 10),
+                  //           Text(
+                  //             '${selectedAddress.houseNumber.isEmpty ? '' : selectedAddress.houseNumber + ' '}${selectedAddress.street}',
+                  //           ),
+                  //           Text(selectedAddress.province),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //     Divider(
+                  //       thickness: 1.2,
+                  //       color: Colors.grey[200],
+                  //     ),
+                  //     GestureDetector(
+                  //       onTap: () {
+                  //         Navigator.pushNamed(
+                  //             context, EditAddressScreen.routeName,
+                  //             arguments: EditAddressScreen(
+                  //               editAddress: selectedAddress,
+                  //               handleChange: (Address newAddress) {
+                  //                 setState(() {
+                  //                   selectedAddress = newAddress;
+                  //                 });
+                  //               },
+                  //               isInstructionFocus: true,
+                  //             ));
+                  //       },
+                  //       child: Padding(
+                  //         padding: const EdgeInsets.symmetric(
+                  //             horizontal: 15, vertical: 5),
+                  //         child: selectedAddress.deliveryInstruction == ''
+                  //             ? Row(
+                  //                 children: [
+                  //                   Icon(
+                  //                     Icons.add,
+                  //                     color: scheme.primary,
+                  //                   ),
+                  //                   const SizedBox(width: 10),
+                  //                   Text(
+                  //                     'Add delivery instructions',
+                  //                     style: TextStyle(
+                  //                       fontWeight: FontWeight.w600,
+                  //                       color: scheme.primary,
+                  //                     ),
+                  //                   )
+                  //                 ],
+                  //               )
+                  //             : Padding(
+                  //                 padding: const EdgeInsets.all(8),
+                  //                 child: Row(
+                  //                   children: [
+                  //                     Expanded(
+                  //                       child: Text(
+                  //                         selectedAddress.deliveryInstruction!,
+                  //                       ),
+                  //                     ),
+                  //                     const SizedBox(width: 10),
+                  //                     Icon(
+                  //                       Icons.arrow_forward_ios_rounded,
+                  //                       color: scheme.primary,
+                  //                       size: 15,
+                  //                     )
+                  //                   ],
+                  //                 ),
+                  //               ),
+                  //       ),
+                  //     ),
+                  //     Divider(
+                  //       thickness: 1.2,
+                  //       color: Colors.grey[200],
+                  //     ),
+                  //     Padding(
+                  //       padding: const EdgeInsets.symmetric(
+                  //           horizontal: 15, vertical: 5),
+                  //       child: Row(
+                  //         children: [
+                  //           const Expanded(
+                  //             child: Text(
+                  //               'Contactless delivery: switch to online payment for this option',
+                  //               style: TextStyle(
+                  //                 fontWeight: FontWeight.w600,
+                  //               ),
+                  //             ),
+                  //           ),
+                  //           const SizedBox(width: 50),
+                  //           Switch(
+                  //             value: false,
+                  //             activeTrackColor: scheme.primary,
+                  //             activeColor: Colors.white,
+                  //             onChanged: (value) {},
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //     const SizedBox(height: 5),
+                  //   ],
+                  // )
+                  
+                  ,
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
                 ),
                 const SizedBox(height: 33),
                 BoxContainer(

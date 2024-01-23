@@ -64,7 +64,7 @@ class _PickLocationScreenState extends State<PickLocationScreen> {
       ),
       bottomNavigationBar: Container(
         width: double.infinity,
-        height: 150,
+        height: 200,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -80,7 +80,7 @@ class _PickLocationScreenState extends State<PickLocationScreen> {
             topRight: Radius.circular(10),
           ),
         ),
-        child: Column(
+        child: Wrap(
           children: [
             CustomTextButton(
               text: 'Share my current location',

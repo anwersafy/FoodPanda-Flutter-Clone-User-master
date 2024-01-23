@@ -33,110 +33,110 @@ class OrderScreenInfo extends StatelessWidget {
                 color: scheme.primary,
               )
             : const SizedBox(),
-        SizedBox(height: !order.isPickup || order.isDelivered ? 60 : 0),
-        Center(
-          child: Column(
-            children: [
-              !order.isPickup || order.isDelivered
-                  ? Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.grey[200],
-                        image: const DecorationImage(
-                          image: AssetImage(
-                              'assets/images/foodpanda_location.png'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    )
-                  : const SizedBox(),
-              const SizedBox(height: 40),
-              const Text(
-                'Estimated delivery time',
-                style: TextStyle(
-                  fontSize: 15,
-                ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                order.isDelivered
-                    ? 'Delivered'
-                    : order.isNear
-                        ? 'Anytime now'
-                        : order.isPickup
-                            ? '$time mins'
-                            : order.isShopAccept
-                                ? '10 - 15 mins'
-                                : '5 - 15 mins',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35,
-                ),
-              ),
-              const SizedBox(height: 20),
-              !order.isDelivered
-                  ? Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 50,
-                            child: CustomLinearProgress(
-                              isProgess: !order.isShopAccept,
-                              isDone: order.isShopAccept,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: CustomLinearProgress(
-                              isProgess: order.isShopAccept,
-                              isDone: order.isPickup,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: CustomLinearProgress(
-                              isProgess: order.isPickup,
-                              isDone: order.isNear,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          SizedBox(
-                            width: 70,
-                            child: CustomLinearProgress(
-                              isProgess: order.isNear,
-                              isDone: order.isDelivered,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  : const SizedBox(),
-              SizedBox(height: !order.isDelivered ? 20 : 0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  order.isDelivered
-                      ? 'Enjoy!'
-                      : order.isNear
-                          ? 'Anytime now! Look out for your rider!'
-                          : order.isPickup
-                              ? 'Your rider has picked up your order'
-                              : order.isShopAccept
-                                  ? 'Preparing your order. Your rider will pick it up once it\'s ready.'
-                                  : 'Got your order ${order.user.name.split(' ')[0]}!',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 15,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-            ],
-          ),
-        ),
+        // SizedBox(height: !order.isPickup || order.isDelivered ? 60 : 0),
+        // Center(
+        //   child: Column(
+        //     children: [
+        //       !order.isPickup || order.isDelivered
+        //           ? Container(
+        //               width: 100,
+        //               height: 100,
+        //               decoration: BoxDecoration(
+        //                 borderRadius: BorderRadius.circular(25),
+        //                 color: Colors.grey[200],
+        //                 image: const DecorationImage(
+        //                   image: AssetImage(
+        //                       'assets/images/foodpanda_location.png'),
+        //                   fit: BoxFit.cover,
+        //                 ),
+        //               ),
+        //             )
+        //           : const SizedBox(),
+        //       const SizedBox(height: 40),
+        //       const Text(
+        //         'Estimated delivery time',
+        //         style: TextStyle(
+        //           fontSize: 15,
+        //         ),
+        //       ),
+        //       const SizedBox(height: 10),
+        //       Text(
+        //         order.isDelivered
+        //             ? 'Delivered'
+        //             : order.isNear
+        //                 ? 'Anytime now'
+        //                 : order.isPickup
+        //                     ? '$time mins'
+        //                     : order.isShopAccept
+        //                         ? '10 - 15 mins'
+        //                         : '5 - 15 mins',
+        //         style: const TextStyle(
+        //           fontWeight: FontWeight.bold,
+        //           fontSize: 35,
+        //         ),
+        //       ),
+        //       const SizedBox(height: 20),
+        //       !order.isDelivered
+        //           ? Padding(
+        //               padding: const EdgeInsets.symmetric(horizontal: 20),
+        //               child: Row(
+        //                 children: [
+        //                   SizedBox(
+        //                     width: 50,
+        //                     child: CustomLinearProgress(
+        //                       isProgess: !order.isShopAccept,
+        //                       isDone: order.isShopAccept,
+        //                     ),
+        //                   ),
+        //                   const SizedBox(width: 10),
+        //                   Expanded(
+        //                     child: CustomLinearProgress(
+        //                       isProgess: order.isShopAccept,
+        //                       isDone: order.isPickup,
+        //                     ),
+        //                   ),
+        //                   const SizedBox(width: 10),
+        //                   Expanded(
+        //                     child: CustomLinearProgress(
+        //                       isProgess: order.isPickup,
+        //                       isDone: order.isNear,
+        //                     ),
+        //                   ),
+        //                   const SizedBox(width: 10),
+        //                   SizedBox(
+        //                     width: 70,
+        //                     child: CustomLinearProgress(
+        //                       isProgess: order.isNear,
+        //                       isDone: order.isDelivered,
+        //                     ),
+        //                   ),
+        //                 ],
+        //               ),
+        //             )
+        //           : const SizedBox(),
+        //       SizedBox(height: !order.isDelivered ? 20 : 0),
+        //       Padding(
+        //         padding: const EdgeInsets.symmetric(horizontal: 20),
+        //         child: Text(
+        //           order.isDelivered
+        //               ? 'Enjoy!'
+        //               : order.isNear
+        //                   ? 'Anytime now! Look out for your rider!'
+        //                   : order.isPickup
+        //                       ? 'Your rider has picked up your order'
+        //                       : order.isShopAccept
+        //                           ? 'Preparing your order. Your rider will pick it up once it\'s ready.'
+        //                           : 'Got your order ${order.user.name.split(' ')[0]}!',
+        //           textAlign: TextAlign.center,
+        //           style: const TextStyle(
+        //             fontSize: 15,
+        //           ),
+        //         ),
+        //       ),
+        //       const SizedBox(height: 20),
+        //     ],
+        //   ),
+        // ),
         Container(
           width: double.infinity,
           height: 10,

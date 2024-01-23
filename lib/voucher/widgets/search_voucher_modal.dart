@@ -60,7 +60,7 @@ Future<void> showSearchVoucherModal({
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Add a Voucher',
                         style: TextStyle(
                           fontSize: 18,

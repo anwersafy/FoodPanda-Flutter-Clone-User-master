@@ -13,8 +13,8 @@ class VoucherController {
     query = query.toUpperCase();
 
     var result = await firestore
-        .collection('vouchers')
-        .where('name', isEqualTo: query)
+        .collection('voucherID')
+        .where('code', isEqualTo: query)
         .get();
 
     if (result.docs.isEmpty) {
@@ -48,9 +48,7 @@ class VoucherController {
     final DocumentReference ref;
     String? errorText;
 
-    ref = firestore
-        .collection('saved_vouchers')
-        .doc(firebaseAuth.currentUser!.uid);
+    ref = firestore.collection('voucherID').doc(firebaseAuth.currentUser!.uid);
 
     await ref.get().then((DocumentSnapshot documentSnapshot) async {
       if (documentSnapshot.exists) {
@@ -78,9 +76,7 @@ class VoucherController {
     final DocumentReference ref;
     bool isChecked = false;
 
-    ref = firestore
-        .collection('saved_vouchers')
-        .doc(firebaseAuth.currentUser!.uid);
+    ref = firestore.collection('voucherID').doc(firebaseAuth.currentUser!.uid);
 
     await ref.get().then((DocumentSnapshot documentSnapshot) async {
       if (documentSnapshot.exists) {
@@ -95,7 +91,7 @@ class VoucherController {
 
   Future<List<Voucher>> fetchSavedVouchers() async {
     return firestore
-        .collection('saved_vouchers')
+        .collection('voucherID')
         .doc(firebaseAuth.currentUser!.uid)
         .get()
         .then(
@@ -122,7 +118,7 @@ class VoucherController {
 
   Future<List<String>> fetchUsedVouchers() async {
     return firestore
-        .collection('saved_vouchers')
+        .collection('voucherID')
         .doc(firebaseAuth.currentUser!.uid)
         .get()
         .then(
@@ -144,9 +140,11 @@ class VoucherController {
     required String voucherId,
   }) async {
     var voucherData =
-        await firestore.collection('vouchers').doc(voucherId).get();
+        await firestore.collection('voucherID').doc(voucherId).get();
 
     Voucher? voucher;
+    print("MMMMMMMMMMMMMMMMMMMMMMMMMMMM");
+    print(voucherData.data());
     if (voucherData.data() != null) {
       Voucher tempVoucher = Voucher.fromMap(voucherData.data()!);
       if (DateTime.now().isAfter(
@@ -165,9 +163,7 @@ class VoucherController {
   }) async {
     final DocumentReference ref;
 
-    ref = firestore
-        .collection('saved_vouchers')
-        .doc(firebaseAuth.currentUser!.uid);
+    ref = firestore.collection('voucherID').doc(firebaseAuth.currentUser!.uid);
 
     await ref.get().then((DocumentSnapshot documentSnapshot) async {
       if (documentSnapshot.exists) {
@@ -194,9 +190,7 @@ class VoucherController {
   }) async {
     final DocumentReference ref;
 
-    ref = firestore
-        .collection('saved_vouchers')
-        .doc(firebaseAuth.currentUser!.uid);
+    ref = firestore.collection('voucherID').doc(firebaseAuth.currentUser!.uid);
 
     await ref.get().then((DocumentSnapshot documentSnapshot) async {
       if (documentSnapshot.exists) {

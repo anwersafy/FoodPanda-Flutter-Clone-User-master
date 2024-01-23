@@ -18,6 +18,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   bool isLocation = false;
 
+  @override
+void dispose() {
+  // Cancel any ongoing tasks or clean up resources here
+  super.dispose();
+}
+
+
   Future getLocation() async {
     final locationProvider = context.read<LocationProvider>();
     await locationProvider.getAddressFromSharedPreference();
@@ -27,7 +34,10 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       isLocation = true;
     }
+  // Check if the widget is still mounted before calling setState
+  if (mounted) {
     setState(() {});
+  }
   }
 
   @override

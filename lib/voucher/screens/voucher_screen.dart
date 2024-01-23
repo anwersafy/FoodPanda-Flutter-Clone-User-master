@@ -24,6 +24,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
 
   getData() async {
     vouchers = await voucherController.fetchSavedVouchers();
+    
     usedVouchers = await voucherController.fetchUsedVouchers();
     isLoading = false;
     print(usedVouchers);
@@ -184,7 +185,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
                                         sortBy = 'latest';
                                       });
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       'Clear All',
                                       style: TextStyle(
                                         fontSize: 13,

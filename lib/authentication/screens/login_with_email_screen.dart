@@ -132,7 +132,8 @@ class _LoginWithEmailScreenState extends State<LoginWithEmailScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
-        child: Column(
+        child: Wrap(
+          runSpacing: 150,
           children: [
             Expanded(
               child: Column(
@@ -184,14 +185,17 @@ class _LoginWithEmailScreenState extends State<LoginWithEmailScreen> {
                 ],
               ),
             ),
-            Divider(
+            Wrap(
+              children: [Divider(
               color: Colors.grey[300],
             ),
             CustomTextButton(
               text: 'Continue',
               onPressed: handleEmailSignIn,
               isDisabled: passwordText.isEmpty,
-            ),
+            ),],
+            )
+            
           ],
         ),
       ),
