@@ -2,8 +2,7 @@
 import 'dart:convert';
 
 class Voucher {
-    String code;
-  String discount;
+  
 
   String id;
   String name;
@@ -17,8 +16,7 @@ class Voucher {
   bool freeDelivery;
 
   Voucher({
-    required this.code,
-    required this.discount,
+   
     required this.id,
     required this.name,
     required this.isNewUser,
@@ -33,8 +31,7 @@ class Voucher {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'code': code,
-      'discount': discount,
+      
       'id': id,
       'name': name,
       'isNewUser': isNewUser,
@@ -50,8 +47,7 @@ class Voucher {
 
   factory Voucher.fromMap(Map<String, dynamic> map) {
     return Voucher(
-      code: map['code'] as String,
-      discount: map['discount'] as String,
+     
       id: map['id'] as String,
       name: map['name'] as String,
       isNewUser: map['isNewUser'] as bool,
@@ -85,8 +81,7 @@ class Voucher {
     bool? freeDelivery,
   }) {
     return Voucher(
-      code: code ?? this.code,
-      discount: discount ?? this.discount,
+ 
       id: id ?? this.id,
       name: name ?? this.name,
       isNewUser: isNewUser ?? this.isNewUser,
@@ -102,7 +97,7 @@ class Voucher {
 
   @override
   String toString() {
-    return 'Voucher(code: $code, discount: $discount, id: $id, name: $name, isNewUser: $isNewUser, startingDate: $startingDate, expiredDate: $expiredDate, createdDate: $createdDate, minPrice: $minPrice, discountPrice: $discountPrice, discountPercentage: $discountPercentage, freeDelivery: $freeDelivery)';
+    return 'Voucher( id: $id, name: $name, isNewUser: $isNewUser, startingDate: $startingDate, expiredDate: $expiredDate, createdDate: $createdDate, minPrice: $minPrice, discountPrice: $discountPrice, discountPercentage: $discountPercentage, freeDelivery: $freeDelivery)';
   }
 
   @override
@@ -110,8 +105,7 @@ class Voucher {
     if (identical(this, other)) return true;
   
     return 
-      other.code == code &&
-      other.discount == discount &&
+    
       other.id == id &&
       other.name == name &&
       other.isNewUser == isNewUser &&
@@ -126,8 +120,8 @@ class Voucher {
 
   @override
   int get hashCode {
-    return code.hashCode ^
-      discount.hashCode ^
+    return 
+    
       id.hashCode ^
       name.hashCode ^
       isNewUser.hashCode ^
