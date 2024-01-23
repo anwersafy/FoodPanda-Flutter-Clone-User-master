@@ -49,24 +49,24 @@ class HeaderClip extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 8.0),
-                Center(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 4.0,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: scheme.surface),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Text(
-                      "Delivery: ${shop.remainingTime} min",
-                      style: textTheme.caption?.copyWith(color: scheme.surface),
-                      strutStyle: StrutStyle(forceStrutHeight: true),
-                    ),
-                  ),
-                ),
+                // const SizedBox(height: 8.0),
+                // Center(
+                //   child: Container(
+                //     padding: const EdgeInsets.symmetric(
+                //       horizontal: 16.0,
+                //       vertical: 4.0,
+                //     ),
+                //     decoration: BoxDecoration(
+                //       border: Border.all(color: scheme.surface),
+                //       borderRadius: BorderRadius.circular(50),
+                //     ),
+                //     child: Text(
+                //       "Delivery: ${shop.remainingTime} min",
+                //       style: textTheme.caption?.copyWith(color: scheme.surface),
+                //       strutStyle: StrutStyle(forceStrutHeight: true),
+                //     ),
+                //   ),
+                // ),
                 const SizedBox(height: 8.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

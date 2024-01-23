@@ -14,7 +14,7 @@ import 'package:foodpanda_user/cart/screens/help_screen.dart';
 import 'package:foodpanda_user/cart/screens/order_screen.dart';
 import 'package:foodpanda_user/cart/widgets/order_screen_without_map.dart';
 import 'package:foodpanda_user/customize/screens/customize_screen.dart';
-import 'package:foodpanda_user/food_delivery/screens/food_delivery_screen.dart';
+// import 'package:foodpanda_user/food_delivery/screens/food_delivery_screen.dart';
 import 'package:foodpanda_user/home_screen/screens/home_screen.dart';
 import 'package:foodpanda_user/order_history/screens/order_history_screen.dart';
 import 'package:foodpanda_user/pick_location/screens/pick_location_screen.dart';
@@ -49,11 +49,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         ),
       );
 
-    case FoodDeliveryScreen.routeName:
-      return MaterialPageRoute(
-        settings: routeSettings,
-        builder: (_) => const FoodDeliveryScreen(),
-      );
+    // case FoodDeliveryScreen.routeName:
+    //   return MaterialPageRoute(
+    //     settings: routeSettings,
+    //     builder: (_) => const FoodDeliveryScreen(),
+    //   );
 
     case EmailAuthenticationScreen.routeName:
       return MaterialPageRoute(

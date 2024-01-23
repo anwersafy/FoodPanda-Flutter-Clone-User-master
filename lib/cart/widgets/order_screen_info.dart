@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodpanda_user/cart/widgets/custom_linear_progress.dart';
+// import 'package:foodpanda_user/cart/widgets/custom_linear_progress.dart';
 import 'package:foodpanda_user/cart/widgets/view_detail.dart';
 import 'package:foodpanda_user/constants/colors.dart';
 import 'package:foodpanda_user/constants/helper.dart';
