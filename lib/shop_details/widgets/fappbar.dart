@@ -22,14 +22,16 @@ class FAppBar extends SliverAppBar {
   final List<Menu> categoriesData;
   final BuildContext context;
   final bool isCollapsed;
+  @override
   final double expandedHeight;
+  @override
   final double collapsedHeight;
   final AutoScrollController scrollController;
   final TabController tabController;
   final void Function(bool isCollapsed) onCollapsed;
   final void Function(int index) onTap;
 
-  FAppBar({
+  FAppBar({super.key, 
     required this.shop,
     required this.categoriesData,
     required this.context,
@@ -80,7 +82,7 @@ class FAppBar extends SliverAppBar {
           Navigator.pop(context);
         },
         backgroundColor: backgroundColor,
-        icon: Icon(Icons.arrow_back),
+        icon: const Icon(Icons.arrow_back),
       ),
     );
   }
@@ -98,12 +100,12 @@ class FAppBar extends SliverAppBar {
 
 
         },
-        icon: Icon(Icons.share_outlined),
+        icon: const Icon(Icons.share_outlined),
       ),
       FIconButton(
         backgroundColor: backgroundColor,
         onPressed: () {},
-        icon: Icon(Icons.info_outline),
+        icon: const Icon(Icons.info_outline),
       ),
     ];
   }
@@ -112,7 +114,7 @@ class FAppBar extends SliverAppBar {
   Widget? get title {
     var textTheme = Theme.of(context).textTheme;
     return AnimatedOpacity(
-      opacity: this.isCollapsed ? 0 : 1,
+      opacity: isCollapsed ? 0 : 1,
       duration: const Duration(milliseconds: 250),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,9 +126,9 @@ class FAppBar extends SliverAppBar {
           ),
           const SizedBox(height: 4.0),
           Text(
-            shop.remainingTime.toString() + ' min',
-            style: textTheme.caption?.copyWith(color: scheme.primary),
-            strutStyle: Helper.buildStrutStyle(textTheme.caption),
+            '${shop.remainingTime} min',
+            style: textTheme.bodySmall?.copyWith(color: scheme.primary),
+            strutStyle: Helper.buildStrutStyle(textTheme.bodySmall),
           ),
         ],
       ),
@@ -176,7 +178,7 @@ class FAppBar extends SliverAppBar {
             children: [
               Stack(
                 children: [
-                  PromoText(
+                  const PromoText(
                       title:
                           ' HELLOPANDA 4.5\$ '),
                   // const PandaHead(),
@@ -188,7 +190,7 @@ class FAppBar extends SliverAppBar {
                   ),
                 ],
               ),
-              DiscountCard(
+              const DiscountCard(
                 title: '30% Discount',
                 subtitle: 'On the entire menu',
               ),

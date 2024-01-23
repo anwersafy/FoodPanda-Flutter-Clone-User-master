@@ -73,14 +73,16 @@ class _CustomizeCardState extends State<CustomizeCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            Wrap(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   widget.customize.isVariation
                       ? 'Variation'
                       : 'Choice of ${widget.customize.title}',
+                  overflow: TextOverflow.ellipsis, // new
+
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,

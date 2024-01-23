@@ -225,12 +225,12 @@ class CategorySection extends StatelessWidget {
 
   Widget _buildFoodHotSaleIcon() {
     return Container(
-      child: Icon(Icons.whatshot, color: scheme.primary, size: 16.0),
       padding: const EdgeInsets.all(4.0),
       decoration: BoxDecoration(
         color: scheme.primary.withOpacity(0.1),
         borderRadius: BorderRadius.circular(16.0),
       ),
+      child: Icon(Icons.whatshot, color: scheme.primary, size: 16.0),
     );
   }
 

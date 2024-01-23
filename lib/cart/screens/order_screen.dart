@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodpanda_user/cart/widgets/order_screen_with_map.dart';
+// import 'package:foodpanda_user/cart/widgets/order_screen_with_map.dart';
 import 'package:foodpanda_user/cart/widgets/order_screen_without_map.dart';
 import 'package:foodpanda_user/providers/order_provider.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +29,7 @@ class _OrderScreenState extends State<OrderScreen> {
   Widget build(BuildContext context) {
     final order = context.watch<OrderProvider>().currentOrder;
 
-    if (order != null && order.isDelivered) {
+    if (order != null ) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         final finishedOrder = order;
         Navigator.pushReplacementNamed(context, OrderScreenWithoutMap.routeName,
@@ -40,9 +40,9 @@ class _OrderScreenState extends State<OrderScreen> {
     return order != null
         ? !order.isPickup
             ? OrderScreenWithoutMap(order: order)
-            : !order.isDelivered
-                ? OrderScreenWithMap(order: order)
-                : const SizedBox()
+            // : !order.isDelivered
+            //     ? OrderScreenWithMap(order: order)
+                 : const SizedBox()
         : const SizedBox();
   }
 }

@@ -96,7 +96,7 @@ class LocationProvider with ChangeNotifier {
     List<Placemark> placemarks =
         await placemarkFromCoordinates(_latitude!, _longitude!);
 
-    if (placemarks.length > 0) {
+    if (placemarks.isNotEmpty) {
       Address newAddress = Address(
         houseNumber: placemarks[0].subThoroughfare ?? '',
         street: placemarks[0].thoroughfare != null

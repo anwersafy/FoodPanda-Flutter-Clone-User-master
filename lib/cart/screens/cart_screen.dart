@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sticky_widgets/flutter_sticky_widgets.dart';
 import 'package:foodpanda_user/cart/screens/checkout_screen.dart';
 import 'package:foodpanda_user/cart/widgets/bottom_navigation.dart';
-import 'package:foodpanda_user/cart/widgets/cutlery_switch.dart';
+// import 'package:foodpanda_user/cart/widgets/cutlery_switch.dart';
 // import 'package:foodpanda_user/cart/widgets/estimate_card.dart';
 import 'package:foodpanda_user/cart/widgets/product_card.dart';
 // import 'package:foodpanda_user/cart/widgets/progress_stepper.dart';
@@ -32,7 +32,7 @@ class _CartScreenState extends State<CartScreen> {
   List<bool> isQuantityClick = [];
   List<Cart> carts = [];
   double subtotalPrice = 0;
-  double deliveryPrice = 0;
+  // double deliveryPrice = 0;
   bool isProgess = true;
   Voucher? voucher;
 
@@ -51,7 +51,7 @@ class _CartScreenState extends State<CartScreen> {
       subtotalPrice += carts[i].quantity * carts[i].price;
     }
     if (carts.isNotEmpty) {
-      deliveryPrice = carts[0].shop.deliveryPrice!;
+      // deliveryPrice = carts[0].shop.deliveryPrice!;
     }
     setState(() {});
   }
@@ -566,7 +566,7 @@ class _CartScreenState extends State<CartScreen> {
                         children: [
                           SubtotalCard(
                               subtotalPrice: subtotalPrice,
-                              deliveryPrice: deliveryPrice,
+                              // deliveryPrice: deliveryPrice,
                               voucher: voucher,
                               setVoucher: (Voucher? newVoucher) {
                                 setState(() {
@@ -580,31 +580,31 @@ class _CartScreenState extends State<CartScreen> {
                       thickness: 8,
                       color: Colors.grey[100],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
-                      child: Column(
-                        children: [
-                          CutlerySwitch(
-                            isCutlery: isCutlery,
-                            onChanged: (bool value) {
-                              setState(() {
-                                isCutlery = value;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 100,
-                    )
+                    // Padding(
+                    //   padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+                    //   child: Column(
+                    //     children: [
+                    //       CutlerySwitch(
+                    //         isCutlery: isCutlery,
+                    //         onChanged: (bool value) {
+                    //           setState(() {
+                    //             isCutlery = value;
+                    //           });
+                    //         },
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    // const SizedBox(
+                    //   height: 100,
+                    // )
                   ],
                 ),
               ),
             ),
             bottomNavigationBar: BottomNavigation(
                 subtotalPrice: subtotalPrice,
-                deliveryPrice: deliveryPrice,
+                // deliveryPrice: deliveryPrice,
                 discountPrice: discountPrice,
                 carts: carts,
                 onClick: () {
@@ -614,7 +614,7 @@ class _CartScreenState extends State<CartScreen> {
                     arguments: CheckoutScreen(
                       carts: carts,
                       isCutlery: isCutlery,
-                      deliveryPrice: deliveryPrice,
+                      // deliveryPrice: deliveryPrice,
                       subtotalPrice: subtotalPrice,
                       discountPrice: discountPrice,
                       voucherId: voucher != null ? voucher!.id : null,

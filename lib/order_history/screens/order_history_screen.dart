@@ -249,7 +249,8 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                                                           ),
                                                           const SizedBox(width: 10),
                                                           Text(
-                                                            '\$ ${order.totalPrice }',
+
+                                                            '\$ ${(order.totalPrice).toStringAsFixed(2) }',
                                                               overflow:
                                                                   TextOverflow
                                                                       .ellipsis,

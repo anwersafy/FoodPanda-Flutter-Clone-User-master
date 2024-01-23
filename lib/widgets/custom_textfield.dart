@@ -33,7 +33,7 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  FocusNode _focus = FocusNode();
+  final FocusNode _focus = FocusNode();
   bool isNotFocus = true;
   bool isObscure = false;
 

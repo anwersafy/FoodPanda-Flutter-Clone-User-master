@@ -165,7 +165,7 @@ class OrderScreenInfo extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             backgroundImage:
                                 AssetImage('assets/images/foodpanda_panda.png'),
                           ),
@@ -174,7 +174,7 @@ class OrderScreenInfo extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Contact your rider',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w600,
@@ -249,29 +249,29 @@ class OrderScreenInfo extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Delivery address',
-                    style: TextStyle(
-                      fontSize: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 2 - 50,
-                    child: Text(
-                      '${order.address.houseNumber} ${order.address.street} ${order.address.province}',
-                      textAlign: TextAlign.end,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              // Row(
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     const Text(
+              //       'Delivery address',
+              //       style: TextStyle(
+              //         fontSize: 15,
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: MediaQuery.of(context).size.width / 2 - 50,
+              //       child: Text(
+              //         '${order.address.houseNumber} ${order.address.street} ${order.address.province}',
+              //         textAlign: TextAlign.end,
+              //         style: const TextStyle(
+              //           fontSize: 15,
+              //           fontWeight: FontWeight.w600,
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
               const SizedBox(height: 20),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -286,7 +286,7 @@ class OrderScreenInfo extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 2 - 50,
                     child: Text(
-                      '\$ ${(order.totalPrice + order.deliveryPrice - order.discountPrice).toStringAsFixed(2)}',
+                      '\$ ${(order.totalPrice - order.discountPrice).toStringAsFixed(2)}',
                       textAlign: TextAlign.end,
                       style: const TextStyle(
                         fontSize: 15,
