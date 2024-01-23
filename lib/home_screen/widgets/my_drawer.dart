@@ -147,7 +147,9 @@ class MyDrawer extends StatelessWidget {
             'Invite friends',
             Icons.wallet_giftcard_outlined,
             () {
-              Navigator.pop(context);
+               Share.share('check out our APP https://pub.dev/');
+
+              // Navigator.pop(context);
             },
           ),
           Container(
@@ -229,10 +231,12 @@ class MyDrawer extends StatelessWidget {
               icon,
               color: scheme.primary,
             ),
-            onTap: (){
-              Share.share('check out our APP https://pub.dev/');
+            onTap: onTap
+            
+            // (){
+              // Share.share('check out our APP https://pub.dev/');
 
-            },
+            // },
           );
   }
 }
