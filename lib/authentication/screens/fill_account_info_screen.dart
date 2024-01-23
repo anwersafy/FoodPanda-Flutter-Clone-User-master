@@ -223,7 +223,7 @@ class _FillAccountInfoState extends State<FillAccountInfo> {
                       lowercaseCharCount: 1,
                       numericCharCount: 1,
                       specialCharCount: 1,
-                      width: 400,
+                      width: 300,
                       defaultColor: Colors.grey[400]!,
                       failureColor: Colors.red,
                       height: 150,
