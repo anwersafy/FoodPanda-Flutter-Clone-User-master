@@ -49,12 +49,12 @@ class Order {
   Shop shop;
   List<FoodOrder> foodOrders;
   double totalPrice;
-  double deliveryPrice;
+  // double deliveryPrice;
   double discountPrice;
   String? voucherId;
   bool isPaid;
   bool isShopAccept;
-  bool isRiderAccept;
+  // bool isRiderAccept;
   bool isPickup;
   bool isNear;
   bool isDelivered;
@@ -70,12 +70,12 @@ class Order {
     required this.shop,
     required this.foodOrders,
     required this.totalPrice,
-    required this.deliveryPrice,
+    // required this.deliveryPrice,
     required this.discountPrice,
     this.voucherId,
     this.isPaid = false,
     this.isShopAccept = false,
-    this.isRiderAccept = false,
+    // this.isRiderAccept = false,
     this.isPickup = false,
     this.isNear = false,
     this.isDelivered = false,
@@ -94,12 +94,12 @@ class Order {
       'shop': shop.toMap(),
       'foodOrders': foodOrders.map((x) => x.toMap()).toList(),
       'totalPrice': totalPrice,
-      'deliveryPrice': deliveryPrice,
+      // 'deliveryPrice': deliveryPrice,
       'discountPrice': discountPrice,
       'voucherId': voucherId,
       'isPaid': isPaid,
       'isShopAccept': isShopAccept,
-      'isRiderAccept': isRiderAccept,
+      // 'isRiderAccept': isRiderAccept,
       'isPickup': isPickup,
       'isNear': isNear,
       'isDelivered': isDelivered,
@@ -123,14 +123,14 @@ class Order {
         ),
       ),
       totalPrice: map['totalPrice'] as double,
-      deliveryPrice: map['deliveryPrice'] as double,
+      // deliveryPrice: map['deliveryPrice'] as double,
       discountPrice: map['discountPrice'] as double,
       voucherId: map['voucherId'] != null ? map['voucherId'] as String : null,
       isPaid: map['isPaid'] != null ? map['isPaid'] as bool : false,
       isShopAccept:
           map['isShopAccept'] != null ? map['isShopAccept'] as bool : false,
-      isRiderAccept:
-          map['isRiderAccept'] != null ? map['isRiderAccept'] as bool : false,
+      // isRiderAccept:
+      //     map['isRiderAccept'] != null ? map['isRiderAccept'] as bool : false,
       isPickup: map['isPickup'] != null ? map['isPickup'] as bool : false,
       isNear: map['isNear'] != null ? map['isNear'] as bool : false,
       isDelivered:

@@ -28,7 +28,7 @@ class CheckoutScreen extends StatefulWidget {
 
   final List<Cart> carts;
   final double subtotalPrice;
-  final double deliveryPrice;
+  // final double deliveryPrice;
   final double discountPrice;
   final bool isCutlery;
   final String? voucherId;
@@ -37,7 +37,7 @@ class CheckoutScreen extends StatefulWidget {
     super.key,
     required this.carts,
     required this.subtotalPrice,
-    required this.deliveryPrice,
+    // required this.deliveryPrice,
     required this.isCutlery,
     required this.discountPrice,
     this.voucherId,
@@ -60,7 +60,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   void initState() {
     final lp = context.read<LocationProvider>();
     setState(() {
-      deliveryPrice = widget.deliveryPrice;
+      // deliveryPrice = widget.deliveryPrice;
       selectedAddress = lp.address!;
     });
     scrollController.addListener(() {
@@ -111,7 +111,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       shop: widget.carts[0].shop,
       foodOrders: foodOrders,
       totalPrice: widget.subtotalPrice,
-      deliveryPrice: deliveryPrice,
+      // deliveryPrice: deliveryPrice,
       discountPrice: widget.discountPrice,
       voucherId: widget.voucherId,
       time: DateTime.now().millisecondsSinceEpoch,
@@ -446,7 +446,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               ),
                             ),
                             Text(
-                              '\$ ${(widget.subtotalPrice + deliveryPrice - widget.discountPrice).toStringAsFixed(2)}',
+                              '\$ ${(widget.subtotalPrice - widget.discountPrice).toStringAsFixed(2)}',
                               style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -543,26 +543,26 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           ],
                         ),
                         const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                'Delivery fee',
-                                style: TextStyle(
-                                  color: Colors.grey[700],
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              '\$ $deliveryPrice',
-                              style: TextStyle(
-                                color: Colors.grey[700],
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
+                        // Row(
+                        //   children: [
+                        //     Expanded(
+                        //       child: Text(
+                        //         'Delivery fee',
+                        //         style: TextStyle(
+                        //           color: Colors.grey[700],
+                        //           fontSize: 14,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     Text(
+                        //       '\$ $deliveryPrice',
+                        //       style: TextStyle(
+                        //         color: Colors.grey[700],
+                        //         fontSize: 14,
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                         SizedBox(height: widget.discountPrice != 0 ? 10 : 0),
                         widget.discountPrice != 0
                             ? Row(
@@ -648,7 +648,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         title: 'Place order',
         carts: widget.carts,
         subtotalPrice: widget.subtotalPrice,
-        deliveryPrice: deliveryPrice,
+        // deliveryPrice: deliveryPrice,
         discountPrice: widget.discountPrice,
         onClick: placeOrder,
       ),

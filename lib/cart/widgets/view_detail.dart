@@ -154,23 +154,23 @@ class _ViewDetailState extends State<ViewDetail> {
                             ],
                           ),
                           const SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Delivery fee',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                ),
-                              ),
-                              Text(
-                                '\$ ${widget.order.deliveryPrice}',
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ],
-                          ),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //   children: [
+                          //     const Text(
+                          //       'Delivery fee',
+                          //       style: TextStyle(
+                          //         fontSize: 15,
+                          //       ),
+                          //     ),
+                          //     Text(
+                          //       '\$ ${widget.order.deliveryPrice}',
+                          //       style: const TextStyle(
+                          //         fontSize: 15,
+                          //       ),
+                          //     ),
+                          //   ],
+                          // ),
                           const SizedBox(height: 20),
                           widget.order.discountPrice != 0
                               ? Row(
@@ -222,7 +222,7 @@ class _ViewDetailState extends State<ViewDetail> {
                                 ),
                               ),
                               Text(
-                                '\$ ${(widget.order.totalPrice + widget.order.deliveryPrice - widget.order.discountPrice).toStringAsFixed(2)}',
+                                '\$ ${(widget.order.totalPrice  - widget.order.discountPrice).toStringAsFixed(2)}',
                                 style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
@@ -255,14 +255,14 @@ class _ViewDetailState extends State<ViewDetail> {
                                 const SizedBox(width: 25),
                                 const Expanded(
                                   child: Text(
-                                    'cash on delivery',
+                                    'cash on Cashier',
                                     style: TextStyle(
                                       fontSize: 14,
                                     ),
                                   ),
                                 ),
                                 Text(
-                                  '\$ ${(widget.order.totalPrice + widget.order.deliveryPrice - widget.order.discountPrice).toStringAsFixed(2)}',
+                                  '\$ ${(widget.order.totalPrice - widget.order.discountPrice).toStringAsFixed(2)}',
                                   style: const TextStyle(
                                     fontSize: 14,
                                   ),

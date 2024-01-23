@@ -142,7 +142,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           carts: args.carts,
           isCutlery: args.isCutlery,
           subtotalPrice: args.subtotalPrice,
-          deliveryPrice: args.deliveryPrice,
+          // deliveryPrice: args.deliveryPrice,
           discountPrice: args.discountPrice,
           voucherId: args.voucherId,
         ),

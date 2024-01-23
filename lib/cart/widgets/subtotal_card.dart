@@ -7,13 +7,13 @@ import 'package:foodpanda_user/voucher/widgets/voucher_card.dart';
 
 class SubtotalCard extends StatelessWidget {
   final double subtotalPrice;
-  final double deliveryPrice;
+  // final double deliveryPrice;
   final Voucher? voucher;
   final Function(Voucher?) setVoucher;
   const SubtotalCard({
     super.key,
     required this.subtotalPrice,
-    required this.deliveryPrice,
+    // required this.deliveryPrice,
     this.voucher,
     required this.setVoucher,
   });
@@ -43,19 +43,19 @@ class SubtotalCard extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              'Delivery fee',
-              style: TextStyle(
-                fontSize: 14,
-              ),
-            ),
-            Text('\$ $deliveryPrice'),
-          ],
-        ),
-        const SizedBox(height: 15),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //   children: [
+        //     const Text(
+        //       'Delivery fee',
+        //       style: TextStyle(
+        //         fontSize: 14,
+        //       ),
+        //     ),
+        //     Text('\$ $deliveryPrice'),
+        //   ],
+        // ),
+        // const SizedBox(height: 15),
         voucher == null
             ? GestureDetector(
                 onTap: () {

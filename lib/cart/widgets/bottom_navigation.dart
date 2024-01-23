@@ -6,7 +6,7 @@ import 'package:foodpanda_user/models/cart.dart';
 
 class BottomNavigation extends StatelessWidget {
   final double subtotalPrice;
-  final double deliveryPrice;
+  // final double deliveryPrice;
   final double discountPrice;
   final List<Cart> carts;
   final String? title;
@@ -16,7 +16,7 @@ class BottomNavigation extends StatelessWidget {
     required this.carts,
     this.title,
     required this.subtotalPrice,
-    required this.deliveryPrice,
+    // required this.deliveryPrice,
     required this.onClick,
     required this.discountPrice,
   });
@@ -73,7 +73,7 @@ class BottomNavigation extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      '\$ ${(subtotalPrice + deliveryPrice - discountPrice).toStringAsFixed(2)}',
+                      '\$ ${(subtotalPrice - discountPrice).toStringAsFixed(2)}',
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
