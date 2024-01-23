@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodpanda_user/authentication/widgets/custom_textbutton.dart';
 import 'package:foodpanda_user/constants/colors.dart';
-import 'package:foodpanda_user/home_screen/screens/home_screen.dart';
 import 'package:foodpanda_user/models/order.dart';
 import 'package:foodpanda_user/order_history/controllers/order_history_controller.dart';
 import 'package:intl/intl.dart';
@@ -152,7 +150,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                                         color: Colors.grey.withOpacity(0.1),
                                         spreadRadius: 1,
                                         blurRadius: 1,
-                                        offset: Offset(0, 3),
+                                        offset: const Offset(0, 3),
                                       ),
                                     ],
                                   ),
@@ -202,7 +200,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                                                           ),
                                                           alignment:
                                                               Alignment.center,
-                                                          child: Text(
+                                                          child: const Text(
                                                             'Cancelled',
                                                             style: TextStyle(
                                                               color:
@@ -221,73 +219,79 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                                             Expanded(
                                               child: SizedBox(
                                                 height: 80,
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceAround,
-                                                  children: [
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Text(
-                                                            order.shop.shopName,
-                                                            maxLines: 2,
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                            style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontSize: 16,
+                                                child: Wrap(
+                                                  children:[ Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Text(
+                                                              order.shop.shopName,
+                                                              maxLines: 2,
+                                                              overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+                                                              style: const TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontSize: 16,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ),
-                                                        SizedBox(width: 10),
-                                                        Text(
-                                                          '\$ ${order.totalPrice + order.deliveryPrice}',
-                                                          style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            fontSize: 16,
+                                                          const SizedBox(width: 10),
+                                                          Text(
+                                                            '\$ ${order.totalPrice }',
+                                                              overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+                                                            style: const TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight.bold,
+                                                              fontSize: 16,
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      Text(
+                                                        // '06 Mar, 12:38',
+                                                        DateFormat(
+                                                                'dd MMM, hh:mm')
+                                                            .format(
+                                                          DateTime
+                                                              .fromMillisecondsSinceEpoch(
+                                                            order.deliveredTime !=
+                                                                    0
+                                                                ? order
+                                                                    .deliveredTime!
+                                                                : order.time,
                                                           ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                    Text(
-                                                      // '06 Mar, 12:38',
-                                                      DateFormat(
-                                                              'dd MMM, hh:mm')
-                                                          .format(
-                                                        DateTime
-                                                            .fromMillisecondsSinceEpoch(
-                                                          order.deliveredTime !=
-                                                                  0
-                                                              ? order
-                                                                  .deliveredTime!
-                                                              : order.time,
+                                                        ),
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: Colors.grey[600],
                                                         ),
                                                       ),
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        color: Colors.grey[600],
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      orderItems.join(', '),
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.grey[600],
-                                                      ),
-                                                    )
-                                                  ],
+                                                      Text(
+                                                        orderItems.join(', '),
+                                                        overflow:
+                                                            TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 15,
+                                                          color: Colors.grey[600],
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  ]
                                                 ),
                                               ),
                                             )
@@ -310,7 +314,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(10),
                                               ),
-                                              child: Center(
+                                              child: const Center(
                                                 child: Text(
                                                   'Select items to reorder',
                                                   style: TextStyle(
