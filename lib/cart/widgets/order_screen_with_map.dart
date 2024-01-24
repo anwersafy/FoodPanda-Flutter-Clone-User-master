@@ -76,11 +76,13 @@ class _OrderScreenWithMapState extends State<OrderScreenWithMap> {
                           widget.order.address.longitude),
                       shopLatLng: LatLng(widget.order.shop.latitude,
                           widget.order.shop.longitude),
-                      destination: widget.order.rider != null
-                          ? LatLng(widget.order.rider!.latitude,
-                              widget.order.rider!.longitude)
-                          : LatLng(11, 104),
-                      riderIcon: riderIcon,
+
+                      // destination: widget.order.rider != null
+                      //     ? LatLng(widget.order.rider!.latitude,
+                      //         widget.order.rider!.longitude)
+                      //     : LatLng(11, 104),
+
+                      // riderIcon: riderIcon,
                       shopIcon: shopIcon,
                       userIcon: userIcon,
                       onMapCreated: (GoogleMapController controller) {

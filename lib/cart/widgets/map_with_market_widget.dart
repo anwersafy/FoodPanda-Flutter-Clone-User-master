@@ -3,7 +3,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapWithMarketWidget extends StatelessWidget {
   final LatLng latLng;
-  final LatLng destination;
+  // final LatLng destination;
   final LatLng shopLatLng;
   // final List<LatLng> polylineCoordinates;
   final Function(CameraPosition) onCameraMove;
@@ -11,7 +11,7 @@ class MapWithMarketWidget extends StatelessWidget {
   final VoidCallback markerOnTap;
   final GoogleMapController? mapController;
   final Function(GoogleMapController) onMapCreated;
-  final BitmapDescriptor riderIcon;
+  // final BitmapDescriptor riderIcon;
   final BitmapDescriptor shopIcon;
   final BitmapDescriptor userIcon;
 
@@ -22,11 +22,11 @@ class MapWithMarketWidget extends StatelessWidget {
     required this.onCameraIdle,
     required this.mapController,
     required this.onMapCreated,
-    required this.destination,
+    // required this.destination,
     // required this.polylineCoordinates,
     required this.markerOnTap,
     required this.shopLatLng,
-    required this.riderIcon,
+    // required this.riderIcon,
     required this.shopIcon,
     required this.userIcon,
   }) : super(key: key);
@@ -45,13 +45,13 @@ class MapWithMarketWidget extends StatelessWidget {
           position: shopLatLng,
           icon: shopIcon,
         ),
-        Marker(
-          markerId: MarkerId("rider"),
-          position: destination,
-          icon: riderIcon,
+        // Marker(
+          // markerId: MarkerId("rider"),
+          // position: destination,
+          // icon: riderIcon,
 
           // onTap: markerOnTap,
-        ),
+        // ),
         Marker(
           markerId: MarkerId("source"),
           icon: userIcon,

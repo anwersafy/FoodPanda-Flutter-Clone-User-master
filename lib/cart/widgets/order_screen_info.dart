@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:foodpanda_user/cart/widgets/custom_linear_progress.dart';
 import 'package:foodpanda_user/cart/widgets/view_detail.dart';
 import 'package:foodpanda_user/constants/colors.dart';
-import 'package:foodpanda_user/constants/helper.dart';
+// import 'package:foodpanda_user/constants/helper.dart';
 import 'package:foodpanda_user/models/order.dart';
 import 'package:foodpanda_user/shop_details/widgets/text_tag.dart';
 
@@ -12,16 +12,16 @@ class OrderScreenInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double distance = order.rider == null
-        ? 5
-        : Helper().calculateDistance(
-            order.rider!.latitude,
-            order.rider!.longitude,
-            order.address.latitude,
-            order.address.longitude,
-          );
+    // double distance = order.rider == null
+    //     ? 5
+    //     : Helper().calculateDistance(
+    //         order.rider!.latitude,
+    //         order.rider!.longitude,
+    //         order.address.latitude,
+    //         order.address.longitude,
+    //       );
 
-    int time = (distance * 4).round();
+    // int time = (distance * 4).round();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

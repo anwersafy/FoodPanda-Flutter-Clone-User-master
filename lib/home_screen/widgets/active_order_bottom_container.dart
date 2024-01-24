@@ -42,16 +42,16 @@ class _ActiveOrderBottomContainerState
   @override
   Widget build(BuildContext context) {
     final order = context.watch<OrderProvider>().currentOrder!;
-    double distance = order.rider == null
-        ? 5
-        : Helper().calculateDistance(
-            order.rider!.latitude,
-            order.rider!.longitude,
-            order.address.latitude,
-            order.address.longitude,
-          );
+    // double distance = order.rider == null
+    //     ? 5
+    //     : Helper().calculateDistance(
+    //         order.rider!.latitude,
+    //         order.rider!.longitude,
+    //         order.address.latitude,
+    //         order.address.longitude,
+    //       );
 
-    int time = (distance * 4).round();
+    // int time = (distance * 4).round();
 
     if (order.isDelivered) {
       Timer(const Duration(seconds: 10), () {
@@ -192,21 +192,21 @@ class _ActiveOrderBottomContainerState
                   ),
                 ),
                 const SizedBox(width: 20),
-                Text(
-                  order.isDelivered
-                      ? 'Delivered'
-                      : order.isNear
-                          ? 'Anytime now'
-                          : order.isPickup
-                              ? '$time mins'
-                              : order.isShopAccept
-                                  ? '10 - 15 mins'
-                                  : '5 -15 mins',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                  ),
-                ),
+                // Text(
+                //   order.isDelivered
+                //       ? 'Delivered'
+                //       : order.isNear
+                //           ? 'Anytime now'
+                //           : order.isPickup
+                //               ? '$time mins'
+                //               : order.isShopAccept
+                //                   ? '10 - 15 mins'
+                //                   : '5 -15 mins',
+                //   style: TextStyle(
+                //     fontWeight: FontWeight.w600,
+                //     fontSize: 16,
+                //   ),
+                // ),
               ],
             )
           ],

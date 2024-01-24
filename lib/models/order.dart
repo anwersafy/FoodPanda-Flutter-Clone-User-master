@@ -62,7 +62,7 @@ class Order {
   bool isCutlery;
   int time;
   int? deliveredTime;
-  Rider? rider;
+  // Rider? rider;
   Order({
     this.id,
     required this.user,
@@ -83,7 +83,7 @@ class Order {
     this.isCutlery = false,
     required this.time,
     this.deliveredTime,
-    this.rider,
+    // this.rider,
   });
 
   Map<String, dynamic> toMap() {
@@ -107,7 +107,7 @@ class Order {
       'isCutlery': isCutlery,
       'time': time,
       'deliveredTime': deliveredTime,
-      'rider': rider?.toMap(),
+      // 'rider': rider?.toMap(),
     };
   }
 
@@ -140,9 +140,9 @@ class Order {
       isCutlery: map['isCutlery'] != null ? map['isCutlery'] as bool : false,
       time: map['time'] as int,
       deliveredTime: map['deliveredTime']?.toInt() ?? 0,
-      rider: map['rider'] != null
-          ? Rider.fromMap(map['rider'] as Map<String, dynamic>)
-          : null,
+      // rider: map['rider'] != null
+      //     ? Rider.fromMap(map['rider'] as Map<String, dynamic>)
+      //     : null,
     );
   }
 
