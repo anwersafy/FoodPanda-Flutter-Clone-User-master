@@ -446,7 +446,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               ),
                             ),
                             Text(
-                              '\$ ${(widget.subtotalPrice - widget.discountPrice).toStringAsFixed(2)}',
+                              '\$ ${((widget.subtotalPrice + (widget.subtotalPrice * 0.07)) - widget.discountPrice).toStringAsFixed(2)}',
                               style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -543,26 +543,27 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           ],
                         ),
                         const SizedBox(height: 10),
-                        // Row(
-                        //   children: [
-                        //     Expanded(
-                        //       child: Text(
-                        //         'Delivery fee',
-                        //         style: TextStyle(
-                        //           color: Colors.grey[700],
-                        //           fontSize: 14,
-                        //         ),
-                        //       ),
-                        //     ),
-                        //     Text(
-                        //       '\$ $deliveryPrice',
-                        //       style: TextStyle(
-                        //         color: Colors.grey[700],
-                        //         fontSize: 14,
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
+                          
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'VAT (7%)',
+                                style: TextStyle(
+                                  color: Colors.grey[700],
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              '\$ ${((widget.subtotalPrice * 0.07)).toStringAsFixed(2)}',
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(height: widget.discountPrice != 0 ? 10 : 0),
                         widget.discountPrice != 0
                             ? Row(
@@ -585,7 +586,30 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   ),
                                 ],
                               )
-                            : const SizedBox()
+                            : const SizedBox(),
+
+                            const SizedBox(height: 10),
+                          
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'Total (incl. VAT)',
+                                style: TextStyle(
+                                  color: Colors.grey[700],
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              '\$ ${((widget.subtotalPrice + (widget.subtotalPrice * 0.07)) - widget.discountPrice).toStringAsFixed(2)}',
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),

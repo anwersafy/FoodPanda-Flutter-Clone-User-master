@@ -5,7 +5,7 @@ import 'package:foodpanda_user/cart/screens/order_screen.dart';
 import 'package:foodpanda_user/cart/widgets/custom_linear_progress.dart';
 import 'package:foodpanda_user/cart/widgets/order_screen_without_map.dart';
 import 'package:foodpanda_user/constants/colors.dart';
-import 'package:foodpanda_user/constants/helper.dart';
+// import 'package:foodpanda_user/constants/helper.dart';
 import 'package:foodpanda_user/providers/order_provider.dart';
 import 'package:provider/provider.dart';
 

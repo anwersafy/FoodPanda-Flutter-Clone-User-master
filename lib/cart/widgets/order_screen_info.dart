@@ -286,7 +286,7 @@ class OrderScreenInfo extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 2 - 50,
                     child: Text(
-                      '\$ ${(order.totalPrice - order.discountPrice).toStringAsFixed(2)}',
+                      '\$ ${((order.totalPrice +(order.totalPrice*0.07)) - order.discountPrice).toStringAsFixed(2)}',
                       textAlign: TextAlign.end,
                       style: const TextStyle(
                         fontSize: 15,

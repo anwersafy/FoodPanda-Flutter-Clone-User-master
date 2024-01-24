@@ -15,10 +15,11 @@ class _ViewDetailState extends State<ViewDetail> {
 
   @override
   Widget build(BuildContext context) {
-    int quantity = 0;
-    for (int i = 0; i < widget.order.foodOrders.length; i++) {
-      quantity += widget.order.foodOrders[i].quantity;
-    }
+    int quantity = calculateTotalQuantity();
+    // for (int i = 0; i < widget.order.foodOrders.length; i++) {
+    //   quantity += widget.order.foodOrders[i].quantity;
+    // }
+
 
     return Column(
       children: [
@@ -154,6 +155,8 @@ class _ViewDetailState extends State<ViewDetail> {
                             ],
                           ),
                           const SizedBox(height: 20),
+                          
+                         
                           // Row(
                           //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           //   children: [
@@ -192,24 +195,24 @@ class _ViewDetailState extends State<ViewDetail> {
                                   ],
                                 )
                               : const SizedBox(),
-                          // const SizedBox(height: 20),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          //   children: [
-                          //     Text(
-                          //       'VAT',
-                          //       style: TextStyle(
-                          //         fontSize: 15,
-                          //       ),
-                          //     ),
-                          //     Text(
-                          //       '\$ 0.02',
-                          //       style: TextStyle(
-                          //         fontSize: 15,
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'VAT (7%)',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                              Text(
+                                '\$ ${(widget.order.totalPrice * 0.07).toStringAsFixed(2)}',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
+                           
                           const SizedBox(height: 20),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -222,7 +225,7 @@ class _ViewDetailState extends State<ViewDetail> {
                                 ),
                               ),
                               Text(
-                                '\$ ${(widget.order.totalPrice  - widget.order.discountPrice).toStringAsFixed(2)}',
+                                '\$ ${((widget.order.totalPrice +(widget.order.totalPrice * 0.07))  - widget.order.discountPrice).toStringAsFixed(2)}',
                                 style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
@@ -262,7 +265,7 @@ class _ViewDetailState extends State<ViewDetail> {
                                   ),
                                 ),
                                 Text(
-                                  '\$ ${(widget.order.totalPrice - widget.order.discountPrice).toStringAsFixed(2)}',
+                                '\$ ${((widget.order.totalPrice +(widget.order.totalPrice * 0.07))  - widget.order.discountPrice).toStringAsFixed(2)}',
                                   style: const TextStyle(
                                     fontSize: 14,
                                   ),
@@ -286,4 +289,22 @@ class _ViewDetailState extends State<ViewDetail> {
       ],
     );
   }
+  
+  double calculateTotalWithoutDelivery() {
+    return widget.order.foodOrders.fold<double>(
+      0.0,
+      (previousValue, foodOrder) =>
+          previousValue + (foodOrder.foodPrice * foodOrder.quantity),
+    );
+  }
+   int calculateTotalQuantity() {
+    return widget.order.foodOrders.fold<int>(
+      0,
+      (previousValue, foodOrder) => previousValue + foodOrder.quantity,
+    );
+  }
 }
+
+
+
+

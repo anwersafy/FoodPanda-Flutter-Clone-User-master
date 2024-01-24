@@ -73,7 +73,7 @@ class BottomNavigation extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      '\$ ${(subtotalPrice - discountPrice).toStringAsFixed(2)}',
+                      '\$ ${((subtotalPrice+(subtotalPrice* 0.07 )) - discountPrice).toStringAsFixed(2)}',
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
