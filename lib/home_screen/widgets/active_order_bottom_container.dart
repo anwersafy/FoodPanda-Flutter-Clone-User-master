@@ -152,42 +152,42 @@ class _ActiveOrderBottomContainerState
                               isDone: order.isPickup,
                             ),
                           ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: CustomLinearProgress(
-                              isProgess: order.isPickup,
-                              isDone: order.isNear,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          SizedBox(
-                            width: 35,
-                            child: CustomLinearProgress(
-                              isProgess: order.isNear,
-                              isDone: order.isDelivered,
-                            ),
-                          ),
+                          // const SizedBox(width: 10),
+                          // Expanded(
+                          //   child: CustomLinearProgress(
+                          //     isProgess: order.isPickup,
+                          //     isDone: order.isNear,
+                          //   ),
+                          // ),
+                          // const SizedBox(width: 10),
+                          // SizedBox(
+                          //   width: 35,
+                          //   child: CustomLinearProgress(
+                          //     isProgess: order.isNear,
+                          //     isDone: order.isDelivered,
+                          //   ),
+                          // ),
                         ],
                       ),
-                      const SizedBox(height: 10),
-                      Text(
-                        order.isDelivered
-                            ? 'Enjoy!'
-                            : order.isNear
-                                ? 'Anytime now! Look out for your rider!'
-                                : order.isPickup
-                                    ? 'Your rider has picked up your order'
-                                    : order.isShopAccept
-                                        ? 'Preparing your order. Your rider will pick it up once it\'s ready.'
-                                        : 'Got your order ${order.user.name.split(' ')[0]}!',
-                        overflow: isViewDetail
-                            ? TextOverflow.visible
-                            : TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[700],
-                        ),
-                      )
+                      // const SizedBox(height: 10),
+                      // Text(
+                      //   order.isDelivered
+                      //       ? 'Enjoy!'
+                      //       : order.isNear
+                      //           ? 'Anytime now! Look out for your rider!'
+                      //           : order.isPickup
+                      //               ? 'Your rider has picked up your order'
+                      //               : order.isShopAccept
+                      //                   ? 'Preparing your order. Your rider will pick it up once it\'s ready.'
+                      //                   : 'Got your order ${order.user.name.split(' ')[0]}!',
+                      //   overflow: isViewDetail
+                      //       ? TextOverflow.visible
+                      //       : TextOverflow.ellipsis,
+                      //   style: TextStyle(
+                      //     fontSize: 12,
+                      //     color: Colors.grey[700],
+                      //   ),
+                      // )
                     ],
                   ),
                 ),

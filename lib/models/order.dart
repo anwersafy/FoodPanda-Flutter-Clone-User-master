@@ -2,7 +2,7 @@
 import 'dart:convert';
 
 import 'package:foodpanda_user/models/address.dart';
-import 'package:foodpanda_user/models/rider.dart';
+// import 'package:foodpanda_user/models/rider.dart';
 import 'package:foodpanda_user/models/shop.dart';
 import 'package:foodpanda_user/models/user.dart';
 
@@ -56,10 +56,10 @@ class Order {
   bool isShopAccept;
   // bool isRiderAccept;
   bool isPickup;
-  bool isNear;
+  // bool isNear;
   bool isDelivered;
   bool isCancelled;
-  bool isCutlery;
+  // bool isCutlery;
   int time;
   int? deliveredTime;
   // Rider? rider;
@@ -77,10 +77,10 @@ class Order {
     this.isShopAccept = false,
     // this.isRiderAccept = false,
     this.isPickup = false,
-    this.isNear = false,
+    // this.isNear = false,
     this.isDelivered = false,
     this.isCancelled = false,
-    this.isCutlery = false,
+    // this.isCutlery = false,
     required this.time,
     this.deliveredTime,
     // this.rider,
@@ -101,10 +101,10 @@ class Order {
       'isShopAccept': isShopAccept,
       // 'isRiderAccept': isRiderAccept,
       'isPickup': isPickup,
-      'isNear': isNear,
+      // 'isNear': isNear,
       'isDelivered': isDelivered,
       'isCancelled': isCancelled,
-      'isCutlery': isCutlery,
+      // 'isCutlery': isCutlery,
       'time': time,
       'deliveredTime': deliveredTime,
       // 'rider': rider?.toMap(),
@@ -132,12 +132,12 @@ class Order {
       // isRiderAccept:
       //     map['isRiderAccept'] != null ? map['isRiderAccept'] as bool : false,
       isPickup: map['isPickup'] != null ? map['isPickup'] as bool : false,
-      isNear: map['isNear'] != null ? map['isNear'] as bool : false,
+      // isNear: map['isNear'] != null ? map['isNear'] as bool : false,
       isDelivered:
           map['isDelivered'] != null ? map['isDelivered'] as bool : false,
       isCancelled:
           map['isCancelled'] != null ? map['isCancelled'] as bool : false,
-      isCutlery: map['isCutlery'] != null ? map['isCutlery'] as bool : false,
+      // isCutlery: map['isCutlery'] != null ? map['isCutlery'] as bool : false,
       time: map['time'] as int,
       deliveredTime: map['deliveredTime']?.toInt() ?? 0,
       // rider: map['rider'] != null

@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodpanda_user/models/shop.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SearchShopController {
+class   SearchShopController {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 

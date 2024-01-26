@@ -3,6 +3,7 @@ import 'package:foodpanda_user/address/screens/address_screen.dart';
 import 'package:foodpanda_user/authentication/widgets/authentication_modal.dart';
 import 'package:foodpanda_user/constants/colors.dart';
 import 'package:foodpanda_user/order_history/screens/order_history_screen.dart';
+import 'package:foodpanda_user/payment/screens/payment_screen.dart';
 import 'package:foodpanda_user/providers/authentication_provider.dart';
 import 'package:foodpanda_user/voucher/screens/voucher_screen.dart';
 import 'package:foodpanda_user/widgets/my_alert_dialog.dart';
@@ -128,7 +129,7 @@ class MyDrawer extends StatelessWidget {
                       'Payment methods',
                       Icons.payment_rounded,
                       () {
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context,PaymentScreen.routeName);
                       },
                     ),
                   ],
@@ -233,10 +234,6 @@ class MyDrawer extends StatelessWidget {
             ),
             onTap: onTap
             
-            // (){
-              // Share.share('check out our APP https://pub.dev/');
-
-            // },
           );
   }
 }

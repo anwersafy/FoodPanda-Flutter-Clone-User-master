@@ -17,6 +17,7 @@ import 'package:foodpanda_user/customize/screens/customize_screen.dart';
 // import 'package:foodpanda_user/food_delivery/screens/food_delivery_screen.dart';
 import 'package:foodpanda_user/home_screen/screens/home_screen.dart';
 import 'package:foodpanda_user/order_history/screens/order_history_screen.dart';
+import 'package:foodpanda_user/payment/screens/payment_screen.dart';
 import 'package:foodpanda_user/pick_location/screens/pick_location_screen.dart';
 import 'package:foodpanda_user/pick_location/screens/search_address_manual_screen.dart';
 import 'package:foodpanda_user/search/screens/search_screen.dart';
@@ -140,7 +141,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => CheckoutScreen(
           carts: args.carts,
-          isCutlery: args.isCutlery,
+          // isCutlery: args.isCutlery,
           subtotalPrice: args.subtotalPrice,
           // deliveryPrice: args.deliveryPrice,
           discountPrice: args.discountPrice,
@@ -236,6 +237,14 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         ),
       );
 
+
+//########################################################3
+
+    case PaymentScreen.routeName:
+      return MaterialPageRoute(
+          settings: routeSettings, builder: (_) => PaymentScreen());
+
+//########################################################3
     case SearchScreen.routeName:
       return MaterialPageRoute(
         settings: routeSettings,

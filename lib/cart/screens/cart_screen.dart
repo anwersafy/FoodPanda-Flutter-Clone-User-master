@@ -27,7 +27,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  bool isCutlery = true;
+  // bool isCutlery = true;
   List<int> quantity = [];
   List<bool> isQuantityClick = [];
   List<Cart> carts = [];
@@ -613,7 +613,7 @@ class _CartScreenState extends State<CartScreen> {
                     CheckoutScreen.routeName,
                     arguments: CheckoutScreen(
                       carts: carts,
-                      isCutlery: isCutlery,
+                      // isCutlery: isCutlery,
                       // deliveryPrice: deliveryPrice,
                       subtotalPrice: subtotalPrice,
                       discountPrice: discountPrice,

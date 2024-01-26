@@ -54,66 +54,68 @@ class _RecentSearchState extends State<RecentSearch> {
                     shrinkWrap: true,
                     itemCount: 1,
                     itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () => widget.handleSubmit('Starbuck'),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.history,
-                                    color: Colors.grey[700],
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Expanded(
-                                    child: Text(
-                                      'Starbuck',
-                                      style: TextStyle(
-                                        color: Colors.grey[700],
-                                      ),
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.close,
-                                    color: Colors.grey[700],
-                                    size: 20,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () => widget.handleSubmit('KOI'),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.history,
-                                    color: Colors.grey[700],
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Expanded(
-                                    child: Text(
-                                      'KOI',
-                                      style: TextStyle(
-                                        color: Colors.grey[700],
-                                      ),
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.close,
-                                    color: Colors.grey[700],
-                                    size: 20,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      );
+                      return Column();
+
+                      // Column(
+                      //   children: [
+                      //     GestureDetector(
+                      //       onTap: () => widget.handleSubmit('Starbuck'),
+                      //       child: Padding(
+                      //         padding: const EdgeInsets.symmetric(vertical: 10),
+                      //         child: Row(
+                      //           children: [
+                      //             Icon(
+                      //               Icons.history,
+                      //               color: Colors.grey[700],
+                      //             ),
+                      //             const SizedBox(width: 10),
+                      //             Expanded(
+                      //               child: Text(
+                      //                 'Starbuck',
+                      //                 style: TextStyle(
+                      //                   color: Colors.grey[700],
+                      //                 ),
+                      //               ),
+                      //             ),
+                      //             Icon(
+                      //               Icons.close,
+                      //               color: Colors.grey[700],
+                      //               size: 20,
+                      //             )
+                      //           ],
+                      //         ),
+                      //       ),
+                      //     ),
+                      //     GestureDetector(
+                      //       onTap: () => widget.handleSubmit('KOI'),
+                      //       child: Padding(
+                      //         padding: const EdgeInsets.symmetric(vertical: 10),
+                      //         child: Row(
+                      //           children: [
+                      //             Icon(
+                      //               Icons.history,
+                      //               color: Colors.grey[700],
+                      //             ),
+                      //             const SizedBox(width: 10),
+                      //             Expanded(
+                      //               child: Text(
+                      //                 'KOI',
+                      //                 style: TextStyle(
+                      //                   color: Colors.grey[700],
+                      //                 ),
+                      //               ),
+                      //             ),
+                      //             Icon(
+                      //               Icons.close,
+                      //               color: Colors.grey[700],
+                      //               size: 20,
+                      //             )
+                      //           ],
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // );
                     })
                 : ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),

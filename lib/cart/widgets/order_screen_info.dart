@@ -155,49 +155,52 @@ class OrderScreenInfo extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              order.isPickup && !order.isDelivered
-                  ? Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey[300]!),
-                      ),
-                      child: Row(
-                        children: [
-                          const CircleAvatar(
-                            backgroundImage:
-                                AssetImage('assets/images/foodpanda_panda.png'),
-                          ),
-                          const SizedBox(width: 15),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Contact your rider',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                Text(
-                                  'Ask for contactless\ndelivery',
-                                  style: TextStyle(color: Colors.grey[600]),
-                                )
-                              ],
-                            ),
-                          ),
-                          Icon(
-                            Icons.message_outlined,
-                            color: scheme.primary,
-                            size: 30,
-                          ),
-                        ],
-                      ),
-                    )
-                  : const SizedBox(),
-              const SizedBox(height: 40),
+              // order.isPickup && !order.isDelivered
+              //     ? Container(
+              //         width: double.infinity,
+              //         padding: const EdgeInsets.all(15),
+              //         decoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(10),
+              //           border: Border.all(color: Colors.grey[300]!),
+              //         ),
+              //         child: Row(
+              //           children: [
+              //             const CircleAvatar(
+              //               backgroundImage:
+              //                   AssetImage('assets/images/foodpanda_panda.png'),
+              //             ),
+              //             const SizedBox(width: 15),
+              //             Expanded(
+              //               child: Column(
+              //                 crossAxisAlignment: CrossAxisAlignment.start,
+              //                 children: [
+              //                   const Text(
+              //                     'Contact your rider',
+              //                     style: TextStyle(
+              //                       fontWeight: FontWeight.w600,
+              //                     ),
+              //                   ),
+              //                   const SizedBox(height: 10),
+              //                   Text(
+              //                     'Ask for contactless\ndelivery',
+              //                     style: TextStyle(color: Colors.grey[600]),
+              //                   )
+              //                 ],
+              //               ),
+              //             ),
+              //             Icon(
+              //               Icons.message_outlined,
+              //               color: scheme.primary,
+              //               size: 30,
+              //             ),
+              //           ],
+              //         ),
+              //       )
+              //     : const SizedBox(),
+
+
+
+              // const SizedBox(height: 40),
               const Text(
                 'Order Details',
                 style: TextStyle(

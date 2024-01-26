@@ -1,6 +1,13 @@
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:foodpanda_user/constants/colors.dart';
 import 'package:foodpanda_user/models/order.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 class ViewDetail extends StatefulWidget {
   final Order order;
@@ -11,15 +18,72 @@ class ViewDetail extends StatefulWidget {
 }
 
 class _ViewDetailState extends State<ViewDetail> {
+  GlobalKey globalKey = GlobalKey();
+
   bool isViewDetail = false;
 
+// function for capturing QR code and save the picture 
+  Future<void> _captureAndSavePng() async {
+    try {
+      RenderRepaintBoundary boundary =
+          globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+      var image = await boundary.toImage(pixelRatio: 3.0);
+
+      //Drawing White Background because Qr Code is Black
+      final whitePaint = Paint()..color = Colors.white;
+      final recorder = PictureRecorder();
+      final canvas = Canvas(recorder,
+          Rect.fromLTWH(0, 0, image.width.toDouble(), image.height.toDouble()));
+      canvas.drawRect(
+          Rect.fromLTWH(0, 0, image.width.toDouble(), image.height.toDouble()),
+          whitePaint);
+      canvas.drawImage(image, Offset.zero, Paint());
+      final picture = recorder.endRecording();
+      final img = await picture.toImage(image.width, image.height);
+      ByteData? byteData = await img.toByteData(format: ImageByteFormat.png);
+      Uint8List pngBytes = byteData!.buffer.asUint8List();
+      // Save image to gallery
+      await ImageGallerySaver.saveImage(Uint8List.fromList(pngBytes));
+
+      if (!mounted) return;
+      const snackBar =
+          SnackBar(content: Text('QR code saved to galleryyyyyyy'));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    } catch (e) {
+      if (!mounted) return;
+      const snackBar = SnackBar(content: Text('Something went wrong!!!'));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+  }
+
+//000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   @override
   Widget build(BuildContext context) {
     int quantity = calculateTotalQuantity();
     // for (int i = 0; i < widget.order.foodOrders.length; i++) {
     //   quantity += widget.order.foodOrders[i].quantity;
     // }
+    String qrCodeData = '''
+  Order Details:
+  Order From: ${widget.order.shop.shopName} shop
+  Quantity: $quantity items
+  Subtotal: \$${widget.order.totalPrice}
+  Discount: -\$${widget.order.discountPrice.toStringAsFixed(2)}
+  VAT (7%): \$${(widget.order.totalPrice * 0.07).toStringAsFixed(2)}
+  Total (incl. VAT): \$${((widget.order.totalPrice + (widget.order.totalPrice * 0.07)) - widget.order.discountPrice).toStringAsFixed(2)}
+  Food Details:
+''';
 
+    for (int index = 0; index < widget.order.foodOrders.length; index++) {
+      final food = widget.order.foodOrders[index];
+      qrCodeData += '''
+    - ${food.quantity}x ${food.foodName} \$${food.foodPrice * food.quantity}
+  ''';
+    }
+
+// Ensure to close the triple quotes to complete the string
+    qrCodeData += '''
+''';
 
     return Column(
       children: [
@@ -102,15 +166,15 @@ class _ViewDetailState extends State<ViewDetail> {
                                           fontSize: 15,
                                         ),
                                       ),
-                                      const SizedBox(height: 5),
-                                      Text(
-                                        '75% of Sugar',
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.grey[700],
-                                        ),
-                                      ),
+                                      // const SizedBox(height: 5),
+                                      // Text(
+                                      //   '75% of Sugar',
+                                      //   overflow: TextOverflow.ellipsis,
+                                      //   style: TextStyle(
+                                      //     fontSize: 12,
+                                      //     color: Colors.grey[700],
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 ),
@@ -155,8 +219,7 @@ class _ViewDetailState extends State<ViewDetail> {
                             ],
                           ),
                           const SizedBox(height: 20),
-                          
-                         
+
                           // Row(
                           //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           //   children: [
@@ -212,7 +275,7 @@ class _ViewDetailState extends State<ViewDetail> {
                               ),
                             ],
                           ),
-                           
+
                           const SizedBox(height: 20),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -225,7 +288,7 @@ class _ViewDetailState extends State<ViewDetail> {
                                 ),
                               ),
                               Text(
-                                '\$ ${((widget.order.totalPrice +(widget.order.totalPrice * 0.07))  - widget.order.discountPrice).toStringAsFixed(2)}',
+                                '\$ ${((widget.order.totalPrice + (widget.order.totalPrice * 0.07)) - widget.order.discountPrice).toStringAsFixed(2)}',
                                 style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
@@ -265,7 +328,7 @@ class _ViewDetailState extends State<ViewDetail> {
                                   ),
                                 ),
                                 Text(
-                                '\$ ${((widget.order.totalPrice +(widget.order.totalPrice * 0.07))  - widget.order.discountPrice).toStringAsFixed(2)}',
+                                  '\$ ${((widget.order.totalPrice + (widget.order.totalPrice * 0.07)) - widget.order.discountPrice).toStringAsFixed(2)}',
                                   style: const TextStyle(
                                     fontSize: 14,
                                   ),
@@ -282,6 +345,41 @@ class _ViewDetailState extends State<ViewDetail> {
                       thickness: 1,
                       color: Colors.grey[300],
                     ),
+                    Container(
+                      decoration: BoxDecoration(color: Colors.white),
+                      child: Center(
+                        child: RepaintBoundary(
+                          key: globalKey,
+                          child: QrImageView(
+                            data: qrCodeData,
+                            version: QrVersions.auto,
+                            size: 320,
+                            gapless: false,
+                          ),
+                        ),
+                      ),
+                    ),
+                    // Container(
+                    //   child: Center(
+                    //     child: RepaintBoundary(
+                    //       key: globalKey,
+                    //       child: QrImageView(
+                    //         data: qrCodeData,
+                    //         version: QrVersions.auto,
+                    //         size: 320,
+                    //         gapless: false,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ), // Button to download QR code
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          _captureAndSavePng();
+                        },
+                        child: Text('Download QR Code'),
+                      ),
+                    ),
                   ],
                 ),
               )
@@ -289,7 +387,7 @@ class _ViewDetailState extends State<ViewDetail> {
       ],
     );
   }
-  
+
   double calculateTotalWithoutDelivery() {
     return widget.order.foodOrders.fold<double>(
       0.0,
@@ -297,14 +395,11 @@ class _ViewDetailState extends State<ViewDetail> {
           previousValue + (foodOrder.foodPrice * foodOrder.quantity),
     );
   }
-   int calculateTotalQuantity() {
+
+  int calculateTotalQuantity() {
     return widget.order.foodOrders.fold<int>(
       0,
       (previousValue, foodOrder) => previousValue + foodOrder.quantity,
     );
   }
 }
-
-
-
-

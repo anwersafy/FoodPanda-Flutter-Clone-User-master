@@ -30,7 +30,7 @@ class CheckoutScreen extends StatefulWidget {
   final double subtotalPrice;
   // final double deliveryPrice;
   final double discountPrice;
-  final bool isCutlery;
+  // final bool isCutlery;
   final String? voucherId;
 
   const CheckoutScreen({
@@ -38,7 +38,7 @@ class CheckoutScreen extends StatefulWidget {
     required this.carts,
     required this.subtotalPrice,
     // required this.deliveryPrice,
-    required this.isCutlery,
+    // required this.isCutlery,
     required this.discountPrice,
     this.voucherId,
   });
@@ -115,7 +115,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       discountPrice: widget.discountPrice,
       voucherId: widget.voucherId,
       time: DateTime.now().millisecondsSinceEpoch,
-      isCutlery: widget.isCutlery,
+      // isCutlery: widget.isCutlery,
     );
 
     String status = await op.saveOrderDetail(order);
